@@ -19,7 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVB-tF-NBu">
-                                <rect key="frame" x="107" y="100" width="200" height="34"/>
+                                <rect key="frame" x="107" y="100" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hVB-tF-NBu" secondAttribute="height" multiplier="100:17" constant="-388.23529411764707" id="vuW-Pg-Zns"/>
+                                </constraints>
                                 <state key="normal">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -28,7 +31,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vq5-zN-Ytk">
-                                <rect key="frame" x="192" y="164" width="30" height="34"/>
+                                <rect key="frame" x="107" y="230" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vq5-zN-Ytk" secondAttribute="height" multiplier="15:17" constant="111.76470588235294" id="8a6-9A-jjL"/>
+                                </constraints>
                                 <state key="normal">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -37,7 +43,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YV2-MZ-xgZ">
-                                <rect key="frame" x="192" y="228" width="30" height="34"/>
+                                <rect key="frame" x="107" y="360" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YV2-MZ-xgZ" secondAttribute="height" multiplier="15:17" constant="111.76470588235294" id="cxI-bq-gQa"/>
+                                </constraints>
                                 <state key="normal">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -50,10 +59,13 @@
                         <constraints>
                             <constraint firstItem="hVB-tF-NBu" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="09c-yX-p02"/>
                             <constraint firstItem="YV2-MZ-xgZ" firstAttribute="top" secondItem="vq5-zN-Ytk" secondAttribute="bottom" constant="30" id="8W9-31-XVZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YV2-MZ-xgZ" secondAttribute="bottom" constant="20" id="EMF-cW-Ijl"/>
                             <constraint firstItem="vq5-zN-Ytk" firstAttribute="centerX" secondItem="hVB-tF-NBu" secondAttribute="centerX" id="Q4y-EZ-mPp"/>
                             <constraint firstItem="hVB-tF-NBu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="107" id="Qpk-zg-yQj"/>
                             <constraint firstItem="vq5-zN-Ytk" firstAttribute="top" secondItem="hVB-tF-NBu" secondAttribute="bottom" constant="30" id="aTS-zE-0qd"/>
+                            <constraint firstItem="vq5-zN-Ytk" firstAttribute="height" secondItem="hVB-tF-NBu" secondAttribute="height" id="c4D-zu-G9Z"/>
                             <constraint firstItem="YV2-MZ-xgZ" firstAttribute="centerX" secondItem="vq5-zN-Ytk" secondAttribute="centerX" id="hPN-7G-Em6"/>
+                            <constraint firstItem="YV2-MZ-xgZ" firstAttribute="height" secondItem="vq5-zN-Ytk" secondAttribute="height" id="qBc-sl-g40"/>
                             <constraint firstItem="hVB-tF-NBu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="tuM-Jx-Yef"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
