@@ -1,5 +1,10 @@
 # Whitehouse Petitions
 
 
-## Task
-* download JSON using Swift’s Data type, then use the Codable protocol to convert that data into Swift objects we defined
+## Tasks
+* Download JSON using Swift’s Data type
+* Use the Codable protocol 
+* Convert that data into Swift objects
+
+## Recources
+* https://www.hackingwithswift.com
