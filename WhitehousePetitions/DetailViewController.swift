@@ -17,12 +17,11 @@ class DetailViewController: UIViewController {
         webView = WKWebView()
         view = webView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let detailItem = detailItem else { return }
-
         let html = """
         <html>
         <head>
@@ -34,8 +33,7 @@ class DetailViewController: UIViewController {
         </body>
         </html>
         """
-
+        
         webView.loadHTMLString(html, baseURL: nil)
     }
-
 }
