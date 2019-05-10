@@ -13,6 +13,7 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(promtForAnswer))
         
         let urlString: String
         if navigationController?.tabBarItem.tag == 0 {
@@ -28,6 +29,13 @@ class ViewController: UITableViewController {
             }
         }
         showError()
+    }
+    
+    @objc func promtForAnswer() {
+        let ac = UIAlertController(title: "The data comes from the We The People API of the Whitehouse.", message: nil, preferredStyle: .alert)
+        
+        present(ac, animated: true)
+        
     }
     
     func showError() {
