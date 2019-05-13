@@ -41,33 +41,23 @@ class ViewController: UITableViewController {
         present(ac, animated: true)
     }
     
-    
     @objc func filterPetitions() {
         let ac = UIAlertController(title: "Filter", message: "Type something to filter", preferredStyle: .alert)
         ac.addTextField()
-        
         let filterAction = UIAlertAction(title: "Filter", style: .default) {
             [weak self, weak ac] _ in
             guard let filterWord = ac?.textFields?[0].text else { return }
-            self?.showPetitions(for: filterWord)
+            self?.showPetitions(filter: filterWord)
         }
         
         ac.addAction(filterAction)
         present(ac, animated: true)
     }
     
-    func showPetitions(for filter: String) {
-        
-    }
-    
     func showPetitions(filter: String) {
-        for petition in petitions {
-            if petition.title.contains(filter) {
-                filteredPetitions.append(petition)
-            } else {
-                continue
-            }
-        }
+        
+        filteredPetitions = filteredPetitions.filter { $0.title.contains(filter) }
+        print(filteredPetitions)
         tableView.reloadData()
     }
     
@@ -79,16 +69,12 @@ class ViewController: UITableViewController {
     
     func parse(json: Data) {
         let decoder = JSONDecoder()
-        
         if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
             petitions = jsonPetitions.results
             filteredPetitions = petitions
-            
             tableView.reloadData()
         }
-        
     }
-    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredPetitions.count
@@ -96,12 +82,7 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-//        let petition = petitions[indexPath.row]
-//        cell.textLabel?.text = petition.title
-//        cell.detailTextLabel?.text = petition.body
-//        let petition = petitions[indexPath.row]
         let petition = filteredPetitions[indexPath.row]
-        
         cell.textLabel?.text = petition.title
         cell.detailTextLabel?.text = petition.body
         
