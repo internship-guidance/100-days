@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F537CD9228BF81000BD78E6 /* level2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7F537CD7228BF80F00BD78E6 /* level2.txt */; };
+		7F537CDA228BF81000BD78E6 /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7F537CD8228BF81000BD78E6 /* level1.txt */; };
 		7FADEAFB228AF10D009C0A4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FADEAFA228AF10D009C0A4F /* AppDelegate.swift */; };
 		7FADEAFD228AF10D009C0A4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FADEAFC228AF10D009C0A4F /* ViewController.swift */; };
 		7FADEB00228AF10D009C0A4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FADEAFE228AF10D009C0A4F /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F537CD7228BF80F00BD78E6 /* level2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level2.txt; sourceTree = "<group>"; };
+		7F537CD8228BF81000BD78E6 /* level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
 		7FADEAF7228AF10D009C0A4F /* 36-38_swifty_words.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "36-38_swifty_words.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FADEAFA228AF10D009C0A4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FADEAFC228AF10D009C0A4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 				7FADEB01228AF10F009C0A4F /* Assets.xcassets */,
 				7FADEB03228AF10F009C0A4F /* LaunchScreen.storyboard */,
 				7FADEB06228AF10F009C0A4F /* Info.plist */,
+				7F537CD8228BF81000BD78E6 /* level1.txt */,
+				7F537CD7228BF80F00BD78E6 /* level2.txt */,
 			);
 			path = "36-38_swifty_words";
 			sourceTree = "<group>";
@@ -122,8 +128,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F537CDA228BF81000BD78E6 /* level1.txt in Resources */,
 				7FADEB05228AF10F009C0A4F /* LaunchScreen.storyboard in Resources */,
 				7FADEB02228AF10F009C0A4F /* Assets.xcassets in Resources */,
+				7F537CD9228BF81000BD78E6 /* level2.txt in Resources */,
 				7FADEB00228AF10D009C0A4F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
