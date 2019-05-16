@@ -8,3 +8,4 @@
 | * [Shopping list app](https://github.com/internship-guidance/100-days/tree/shoppingList) | app that allows to add new items to shopping list manipulate with them |
 | * [Whitehouse petitions](https://github.com/internship-guidance/100-days/tree/whitehousePetitions) | takes a data feed from a website and parse it into useful information for users using codable protocol |
 | * [Swifty words](https://github.com/internship-guidance/100-days/tree/36-38_swifty_words) | a word game based on the popular indie game 7 Little Words |
+
