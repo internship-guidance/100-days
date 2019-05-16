@@ -82,7 +82,7 @@ class ViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             scoreLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-        scoreLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            scoreLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             
             cluesLabel.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor),
             cluesLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 100),
@@ -110,8 +110,7 @@ class ViewController: UIViewController {
             buttonsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             buttonsView.topAnchor.constraint(equalTo: submit.bottomAnchor, constant: 20),
             buttonsView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -20)
-            
-        ])
+            ])
         
         let width = 150
         let height = 80
@@ -131,15 +130,44 @@ class ViewController: UIViewController {
                 
             }
         }
-        
     }
     
+    func IncorrectAnswer() {
+        let alertController = UIAlertController(
+            title: "Incorrect",
+            message: "No solutions were found for that answer.",
+            preferredStyle: .alert
+        )
+        alertController.addAction(
+            UIAlertAction(title: "Try again", style: .default) { [unowned self] (action: UIAlertAction) in
+                self.clearAnswer()
+            }
+        )
+        present(alertController, animated: true)
+    }
+    
+    func clearAnswer() {
+        currentAnswer.text = ""
+        
+        activatedButtons.forEach { $0.isHidden = false }
+        activatedButtons.removeAll()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        for letterButton in letterButtons {
+            letterButton.layer.borderWidth = 1
+            letterButton.layer.borderColor = UIColor.lightGray.cgColor
+        }
+        
+        for activatedButton in activatedButtons {
+            activatedButton.layer.borderWidth = 1
+            activatedButton.layer.borderColor = UIColor.lightGray.cgColor
+        }
+        
         loadLevel()
     }
-
+    
     @objc func letterTapped(_ sender: UIButton) {
         guard let buttonTitle = sender.titleLabel?.text else { return }
         
@@ -147,7 +175,7 @@ class ViewController: UIViewController {
         activatedButtons.append(sender)
         sender.isHidden = true
     }
-
+    
     @objc func submitTapped(_ sender: UIButton) {
         guard let answerText = currentAnswer.text else { return }
         
@@ -157,9 +185,7 @@ class ViewController: UIViewController {
             var splitAnswers = answersLabel.text?.components(separatedBy: "\n")
             splitAnswers?[solutionPosition] = answerText
             answersLabel.text = splitAnswers?.joined(separator: "\n")
-            
             currentAnswer.text = ""
-            
             score += 1
             
             if score % 7 == 0 {
@@ -167,13 +193,14 @@ class ViewController: UIViewController {
                 ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
                 present(ac, animated: true)
             }
+        } else {
+            IncorrectAnswer()
         }
     }
+    
     func levelUp(action: UIAlertAction) {
         level += 1
-        
         solutions.removeAll(keepingCapacity: true)
-        
         loadLevel()
         
         for button in letterButtons {
@@ -215,9 +242,9 @@ class ViewController: UIViewController {
                 }
             }
         }
+        
         cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
         answersLabel.text = solutionString.trimmingCharacters(in: .whitespacesAndNewlines)
-        
         letterBits.shuffle()
         
         if letterBits.count == letterButtons.count {
@@ -225,7 +252,6 @@ class ViewController: UIViewController {
                 letterButtons[i].setTitle(letterBits[i], for: .normal)
             }
         }
-
     }
 }
 
