@@ -144,6 +144,7 @@ class ViewController: UIViewController {
             }
         )
         present(alertController, animated: true)
+        score = score - 1
     }
     
     func clearAnswer() {
@@ -188,7 +189,13 @@ class ViewController: UIViewController {
             currentAnswer.text = ""
             score += 1
             
-            if score % 7 == 0 {
+            var hiddenLetterButtons = 0
+            for letterbutton in letterButtons {
+                if letterbutton.isHidden {
+                    hiddenLetterButtons += 1
+                }
+            }
+            if hiddenLetterButtons == letterButtons.count {
                 let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
                 present(ac, animated: true)
